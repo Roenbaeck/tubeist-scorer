@@ -1,0 +1,219 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10000000000000000000001 /* TubeistScorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000011 /* TubeistScorerApp.swift */; };
+		A10000000000000000000002 /* Scoreboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000012 /* Scoreboard.swift */; };
+		A10000000000000000000003 /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000013 /* ScoreboardView.swift */; };
+		A10000000000000000000004 /* OverlayPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000014 /* OverlayPreview.swift */; };
+		A10000000000000000000005 /* Overlay in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000015 /* Overlay */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A10000000000000000000011 /* TubeistScorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TubeistScorerApp.swift; sourceTree = "<group>"; };
+		A10000000000000000000012 /* Scoreboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scoreboard.swift; sourceTree = "<group>"; };
+		A10000000000000000000013 /* ScoreboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardView.swift; sourceTree = "<group>"; };
+		A10000000000000000000014 /* OverlayPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPreview.swift; sourceTree = "<group>"; };
+		A10000000000000000000015 /* Overlay */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Overlay; sourceTree = "<group>"; };
+		A10000000000000000000016 /* TubeistScorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TubeistScorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A10000000000000000000021 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = ();
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A10000000000000000000022 = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000023 /* TubeistScorer */,
+				A10000000000000000000024 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A10000000000000000000023 /* TubeistScorer */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000011 /* TubeistScorerApp.swift */,
+				A10000000000000000000012 /* Scoreboard.swift */,
+				A10000000000000000000013 /* ScoreboardView.swift */,
+				A10000000000000000000014 /* OverlayPreview.swift */,
+				A10000000000000000000015 /* Overlay */,
+			);
+			path = TubeistScorer;
+			sourceTree = "<group>";
+		};
+		A10000000000000000000024 /* Products */ = {
+			isa = PBXGroup;
+			children = (A10000000000000000000016 /* TubeistScorer.app */);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A10000000000000000000025 /* TubeistScorer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000031 /* Build configuration list for PBXNativeTarget "TubeistScorer" */;
+			buildPhases = (
+				A10000000000000000000027 /* Sources */,
+				A10000000000000000000021 /* Frameworks */,
+				A10000000000000000000028 /* Resources */,
+			);
+			buildRules = ();
+			dependencies = ();
+			name = TubeistScorer;
+			productName = TubeistScorer;
+			productReference = A10000000000000000000016 /* TubeistScorer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A10000000000000000000026 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A10000000000000000000025 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = A10000000000000000000032 /* Build configuration list for PBXProject "TubeistScorer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = A10000000000000000000022;
+			productRefGroup = A10000000000000000000024 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A10000000000000000000025 /* TubeistScorer */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A10000000000000000000027 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10000000000000000000001 /* TubeistScorerApp.swift in Sources */,
+				A10000000000000000000002 /* Scoreboard.swift in Sources */,
+				A10000000000000000000003 /* ScoreboardView.swift in Sources */,
+				A10000000000000000000004 /* OverlayPreview.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A10000000000000000000028 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (A10000000000000000000005 /* Overlay in Resources */);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A10000000000000000000041 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		A10000000000000000000042 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		A10000000000000000000043 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tubeist Scorer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.subside.TubeistScorer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A10000000000000000000044 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Tubeist Scorer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.subside.TubeistScorer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A10000000000000000000031 /* Build configuration list for PBXNativeTarget "TubeistScorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (A10000000000000000000043 /* Debug */, A10000000000000000000044 /* Release */);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000032 /* Build configuration list for PBXProject "TubeistScorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (A10000000000000000000041 /* Debug */, A10000000000000000000042 /* Release */);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A10000000000000000000026 /* Project object */;
+}

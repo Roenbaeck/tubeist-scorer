@@ -1,0 +1,1107 @@
+body {
+    margin: 0;
+}
+
+/* =============================================================
+   THEME: LEGACY (legacy table layout)
+   Everything under .theme-legacy … applies when body has class
+   "theme-legacy" (set via index.html?theme=legacy`).
+   ============================================================= */
+
+/* Base positioning and typography for legacy theme */
+.theme-legacy .content_wrapper {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+}
+
+.theme-legacy .scoreboard {
+    font-size: 2.2vmax;
+    margin: 2.5vh 2.5vw 2.5vh 2.5vw;
+    display: table;
+    border-radius: 0.8vmax;
+    padding: 0.4vmax;
+    color: white;
+    color: oklch(100% 0 0);
+    background: rgba(45, 29, 29, 0.5);
+    background: oklch(25% 0.025 20 / 50%);
+}
+.theme-legacy .home, .theme-legacy .away {
+    display: table-row;
+}
+.theme-legacy .set, .theme-legacy .color, .theme-legacy .team, .theme-legacy .serve, .theme-legacy .score {
+    display: table-cell;
+}
+.theme-legacy .team {
+    color: inherit;
+    position: relative;
+    padding-left: 0.8vmax;
+    padding-right: 1.6vmax;
+    text-align: left;
+}
+.theme-legacy .score {
+    padding-left: 0.8vmax;
+    padding-right: 0.4vmax;
+    font-weight: bold;
+    text-align: right;
+}
+.theme-legacy .set {
+    text-align: left;
+    padding-left: 0.4vmax;
+    padding-right: 0.8vmax;
+    font-weight: bold;
+    color: black;
+    color: oklch(0% 0 0);
+}
+.theme-legacy .color {
+    width: 0.8vmax;
+}
+.theme-legacy .serve {
+    aspect-ratio: 1/1;
+    min-width: 1em;
+    width: 1em;
+}
+.theme-legacy .serving {
+    background-image: url("volleyball.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    aspect-ratio: 1 / 1;
+}
+.theme-legacy .ended {
+    display: table-cell;
+    padding-right: 0.4vmax;
+    text-align: center;
+    font-size: 0.6em;
+    font-weight: 900;
+    color: white;
+    color: oklch(100% 0 0);
+}
+.theme-legacy .home .ended {
+    vertical-align: bottom;
+    padding-bottom: 0.2vmax;
+}
+.theme-legacy .away .ended {
+    vertical-align: top;
+    padding-top: 0.2vmax;
+}
+.theme-legacy .ended-sets {
+    display: contents;
+}
+.theme-legacy .ended-sets .ended:first-child {
+    padding-left: 0.8vmax;
+}
+.theme-legacy .lineup {
+    display: table;
+    position: absolute;
+    top: 16vh;
+    left: 2.5vw;
+    background: rgba(45, 29, 29, 0.5);
+    background: oklch(25% 0.025 20 / 50%);
+    color: white;
+    color: oklch(100% 0 0);
+    font-weight: bold;
+    font-size: 0.4em;
+    padding: 0.4vmax;
+    border-radius: 0.8vmax;
+}
+.theme-legacy .home_team, .theme-legacy .away_team {
+    display: table-cell;
+    padding: 0 0.8vmax;
+    vertical-align: top;
+}
+.theme-legacy .player {
+    margin-bottom: 0.16em;
+}
+.theme-legacy .libero {
+    font-style: italic;
+}
+.theme-legacy .number {
+    display: inline-block;
+    width: 2em;
+    text-align: right;
+    margin-right: 0.5em;
+}
+.theme-legacy .name {
+    display: inline-block;
+}
+.theme-legacy .team_name {
+    font-size: 0.8em;
+    text-align: center;
+    margin: 0.4em 0;
+    font-weight: bold;
+}
+.theme-legacy .highlight {
+    position: absolute;
+    bottom: 2.5vh;
+    right: 2.5vw;
+    background: rgba(45, 29, 29, 0.5);
+    background: oklch(25% 0.025 20 / 50%);
+    color: white;
+    color: oklch(100% 0 0);
+    padding: 0.4vmax 0.6vmax;
+    border-radius: 0.8vmax;
+    text-align: center;
+}
+.theme-legacy .highlight-desc {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+.theme-legacy .highlight-player {
+    font-size: 0.7em;
+}
+
+/* =============================================================
+   THEME: MODERN (glass, flex layout)
+   Everything under .theme-modern … applies when body has class
+   "theme-modern" (the overlay default; also selectable with `?theme=modern`).
+   ============================================================= */
+
+/* Typography and flow overrides for modern theme */
+.theme-modern .content_wrapper {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+/* Modern theme uses normal flow for these containers */
+.theme-modern #scoreboard { position: relative; }
+.theme-modern .lineup_wrapper, .theme-modern .highlight_wrapper { position: static; }
+
+/* === Modern theme: bold, horizontal bar with glass effect and accent colors === */
+.theme-modern {
+    --accent: oklch(75% 0.18 260); /* electric blue */
+    /* Slightly higher alpha to compensate for removed blur */
+    --bg-scoreboard: oklch(20% 0.03 250 / 75%);
+    --bg-scoreboard-oklch: oklch(20% 0.03 250 / 75%);
+    --color-text: oklch(98% 0 0);
+    --bg-lineup: oklch(20% 0.03 250 / 75%);
+    --bg-lineup-oklch: oklch(20% 0.03 250 / 75%);
+    --color-lineup: oklch(98% 0 0);
+    --bg-highlight: oklch(20% 0.03 250 / 75%);
+    --bg-highlight-oklch: oklch(20% 0.03 250 / 75%);
+    --color-highlight: oklch(98% 0 0);
+}
+.theme-modern .scoreboard {
+    display: flex;
+    gap: 2vmax;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6vmax 1vmax;
+    /* Create similar left/right gap as the top gap to avoid edge-to-edge */
+    margin: 2vh 3vw;
+    border-radius: 999px;
+    background: rgba(18, 22, 40, 0.65);
+    background: var(--bg-scoreboard-oklch);
+    color: var(--color-text);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    width: fit-content;
+}
+.theme-modern .home, .theme-modern .away {
+    display: flex;
+    align-items: center;
+    gap: 1vmax;
+}
+/* Reorder cells inside each side to: color, team, set, serve, ended-sets, score */
+.theme-modern .home .color, .theme-modern .away .color { order: 1; }
+.theme-modern .home .team,  .theme-modern .away .team  { order: 2; }
+.theme-modern .home .set,   .theme-modern .away .set   { order: 3; }
+.theme-modern .home .serve, .theme-modern .away .serve { order: 4; }
+.theme-modern .home .ended-sets, .theme-modern .away .ended-sets { order: 5; }
+.theme-modern .home .score, .theme-modern .away .score { order: 6; }
+
+/* Team name bold, slightly condensed spacing */
+.theme-modern .team {
+    color: var(--color-text);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    padding: 0 0.5vmax;
+}
+/* Big pill scores */
+.theme-modern .score {
+    font-size: 1.2em;
+    min-width: 2.4em;
+    text-align: center;
+    background: rgba(30, 35, 60, 0.60);
+    background: oklch(30% 0.04 250 / 60%);
+    padding: 0.2em 0.5em;
+    border-radius: 0.6em;
+    box-shadow: inset 0 0 0 2px oklch(60% 0.02 250 / 30%);
+}
+/* Sets as compact badges */
+.theme-modern .set {
+    font-weight: 800;
+    background: rgba(35, 40, 70, 0.50);
+    background: oklch(35% 0.06 250 / 50%);
+    padding: 0.1em 0.5em;
+    border-radius: 0.5em;
+}
+/* Jersey color as circular swatch; visible ring when transparent */
+.theme-modern .color {
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+    border: 2px solid oklch(85% 0 0 / 60%);
+    background-clip: padding-box;
+}
+/* Serve indicator as glowing dot instead of volleyball icon */
+.theme-modern .serve {
+    width: 1.8em;
+    height: 1.8em;
+    min-width: 1.8em;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    /* Keep center transparent */
+    background-color: transparent;
+    box-shadow: none;
+}
+.theme-modern .serving {
+    /* Show volleyball icon inside the accent ring to indicate serve */
+    background-color: transparent;
+    background-image: url("volleyball_modern.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent), 0 0 24px color-mix(in oklch, var(--accent), black 20%);
+    position: relative;
+}
+/* Ended sets as small chips following team */
+.theme-modern .ended-sets { display: flex; gap: 0.3em; }
+.theme-modern .ended {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.4em;
+    padding: 0.1em 0.35em;
+    border-radius: 0.5em;
+    background: rgba(30, 35, 60, 0.45);
+    background: oklch(30% 0.03 250 / 45%);
+    font-size: 0.8em;
+    font-weight: 800;
+}
+
+/* Lineup as two glass cards side-by-side centered near top of screen */
+.theme-modern .lineup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1vmax;
+    position: fixed;
+    top: 2.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 70vw;
+    background: rgba(18, 22, 40, 0.65);
+    background: var(--bg-lineup-oklch);
+    color: var(--color-lineup);
+    padding: 0.75vmax 1vmax;
+    border-radius: 1vmax;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    z-index: 10;
+}
+.theme-modern .home_team, .theme-modern .away_team {
+    display: block;
+}
+.theme-modern .team_name {
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: 900;
+    margin: 0 0 0.4em 0;
+    border-bottom: 2px solid oklch(70% 0.02 250 / 40%);
+    padding-bottom: 0.2em;
+}
+.theme-modern .player { display: flex; align-items: baseline; gap: 0.5em; margin: 0.15em 0; }
+.theme-modern .number {
+    width: auto;
+    min-width: 2.2em;
+    text-align: center;
+    background: rgba(35, 40, 70, 0.50);
+    background: oklch(35% 0.06 250 / 50%);
+    border-radius: 0.5em;
+    padding: 0.05em 0.5em;
+    font-weight: 800;
+}
+.theme-modern .libero .number { background: color-mix(in oklch, var(--accent), white 20%); }
+.theme-modern .name { display: inline-block; }
+
+/* Highlight as toast above the scoring team */
+.theme-modern .highlight {
+    position: absolute;
+    bottom: calc(5vh + 3vw);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(18, 22, 40, 0.65);
+    background: var(--bg-highlight-oklch);
+    color: var(--color-highlight);
+    padding: 0.6vmax 1.8vmax;
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.theme-modern .home-highlight {
+    transform: translateX(-100%) translateX(-2vw);
+}
+.theme-modern .away-highlight {
+    transform: translateX(2vw);
+}
+
+/* Backdrop blur removed by default for streaming-friendly alpha compositing. */
+.theme-modern .highlight-desc { font-size: 1em; font-weight: 900; margin-bottom: 0.1em; }
+.theme-modern .highlight-player { font-size: 0.9em; opacity: 0.9; }
+
+/* =============================================================
+   THEME: ARENA (compact broadcast bar, ?theme=arena)
+   The bar stays anchored when the single-line action ribbon appears.
+   ============================================================= */
+.theme-arena {
+    --arena-ink: #101d2c;
+    --arena-panel: rgba(15, 28, 43, 0.96);
+    --arena-accent: #a8efcf;
+    color: #f5f8fc;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: clamp(11px, 1.05vw, 20px);
+    font-variant-numeric: tabular-nums;
+}
+.theme-arena .content_wrapper {
+    position: fixed;
+    bottom: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(92vw, 1040px);
+}
+.theme-arena .scoreboard {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    background: var(--arena-panel);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+.theme-arena .home, .theme-arena .away {
+    display: grid;
+    align-items: center;
+    min-width: 0;
+    column-gap: 0.65em;
+    position: relative;
+}
+.theme-arena .home {
+    grid-template-columns: 0.3em minmax(0, 1fr) 0.8em 1.8em 3.2em;
+    grid-template-areas: 'color team serve set score' '. ended ended ended ended';
+}
+.theme-arena .away {
+    grid-template-columns: 3.2em 1.8em 0.8em minmax(0, 1fr) 0.3em;
+    grid-template-areas: 'score set serve team color' 'ended ended ended ended .';
+    border-left: 1px solid rgba(16, 29, 44, 0.25);
+}
+.theme-arena .home:not(:has(.score)) {
+    grid-template-columns: 0.3em minmax(0, 1fr) 0.8em 3.2em;
+    grid-template-areas: 'color team serve set' '. ended ended ended';
+}
+.theme-arena .away:not(:has(.score)) {
+    grid-template-columns: 3.2em 0.8em minmax(0, 1fr) 0.3em;
+    grid-template-areas: 'set serve team color' 'ended ended ended .';
+}
+.theme-arena .team {
+    grid-area: team;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+    letter-spacing: 0.015em;
+}
+.theme-arena .away .team { text-align: right; }
+.theme-arena .color {
+    grid-area: color;
+    align-self: stretch;
+    background: #64748b;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+    font-size: 0;
+}
+.theme-arena .score {
+    grid-area: score;
+    display: grid;
+    place-items: center;
+    height: 1.9em;
+    font-size: 1.8em;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: var(--arena-ink);
+    background: #f2f6f9;
+}
+.theme-arena .set {
+    grid-area: set;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.4em;
+    font-weight: 900;
+    color: var(--arena-accent);
+    line-height: 1;
+}
+.theme-arena .set::after {
+    content: 'SETS';
+    font-size: 0.43em;
+    letter-spacing: 0.12em;
+    color: #aebdcb;
+    margin-top: 0.45em;
+}
+.theme-arena .serve {
+    grid-area: serve;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    font-size: inherit;
+    color: transparent;
+}
+.theme-arena .serving {
+    background: var(--arena-accent);
+    box-shadow: 0 0 0 0.18em rgba(168, 239, 207, 0.13);
+}
+.theme-arena .ended-sets {
+    grid-area: ended;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.7em;
+    padding: 0.3em 0.7em;
+    font-size: 0.65em;
+    color: #b9c8d6;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.theme-arena .away .ended-sets { justify-content: flex-start; }
+.theme-arena .ended { min-width: 1.3em; text-align: center; }
+/* A shallow ribbon touches the scoring side of the bar. No layout shift. */
+.theme-arena .highlight {
+    position: absolute;
+    bottom: 100%;
+    left: 25%;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 0.7em;
+    height: 1.8em;
+    padding: 0 0.9em;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+    background: var(--arena-accent);
+    color: var(--arena-ink);
+    font-size: 0.8em;
+    animation: arena-action-in 160ms ease-out;
+}
+.theme-arena .home-highlight { left: 0; }
+.theme-arena .away-highlight { left: auto; right: 0; }
+.theme-arena .highlight-desc {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 45%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.06em;
+    font-weight: 900;
+}
+.theme-arena .highlight-player {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-left: 1px solid rgba(16, 29, 44, 0.25);
+    padding-left: 0.7em;
+    font-weight: 500;
+}
+/* Lineups keep the same centered alignment and leave room for the action. */
+.theme-arena .lineup {
+    position: absolute;
+    bottom: calc(100% + 2.4em);
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2em;
+    padding: 1em 1.3em;
+    background: var(--arena-panel);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 3px solid var(--arena-accent);
+    border-radius: 6px;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+    font-size: 0.85em;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.theme-arena .home_team, .theme-arena .away_team { min-width: 0; }
+.theme-arena .team_name {
+    font-weight: 900;
+    padding-bottom: 0.65em;
+    margin-bottom: 0.6em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.theme-arena .player { display: flex; align-items: baseline; gap: 0.7em; padding: 0.25em 0; }
+.theme-arena .number { flex: 0 0 1.8em; text-align: center; color: var(--arena-accent); font-weight: 900; }
+.theme-arena .name { min-width: 0; overflow-wrap: anywhere; }
+.theme-arena .libero .number { background: var(--arena-accent); color: var(--arena-ink); border-radius: 2px; }
+@keyframes arena-action-in {
+    from { opacity: 0; transform: translateY(3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-arena .highlight { animation: none; }
+}
+
+/* =============================================================
+   THEME: COURTSIDE (top-left scorebug, ?theme=courtside)
+   Uses Arena's base styles, with two aligned rows and a lower ribbon.
+   ============================================================= */
+.theme-courtside {
+    --arena-accent: #f4cd83;
+}
+.theme-courtside .content_wrapper {
+    top: 3.5vh;
+    bottom: auto;
+    left: 2.5vw;
+    transform: none;
+    width: min(92vw, 24em);
+}
+.theme-courtside .scoreboard {
+    display: flex;
+    flex-direction: column;
+}
+.theme-courtside .home, .theme-courtside .away {
+    grid-template-columns: 0.3em minmax(0, 1fr) 0.8em 1.8em 3.2em;
+    grid-template-areas: 'color team serve set score' '. ended ended ended ended';
+}
+.theme-courtside .away {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+.theme-courtside .away .team { text-align: left; }
+.theme-courtside .home:not(:has(.score)), .theme-courtside .away:not(:has(.score)) {
+    grid-template-columns: 0.3em minmax(0, 1fr) 0.8em 3.2em;
+    grid-template-areas: 'color team serve set' '. ended ended ended';
+}
+.theme-courtside .serving {
+    box-shadow: 0 0 0 0.18em rgba(244, 205, 131, 0.13);
+}
+.theme-courtside .ended-sets, .theme-courtside .away .ended-sets {
+    justify-content: flex-end;
+}
+.theme-courtside .highlight {
+    top: 100%;
+    bottom: auto;
+    left: 0;
+    right: auto;
+    width: 100%;
+    border-radius: 0 0 4px 4px;
+}
+.theme-courtside .lineup {
+    top: calc(100% + 2.4em);
+    bottom: auto;
+    left: 0;
+    right: auto;
+    width: min(88vw, 800px);
+    box-sizing: border-box;
+    max-height: calc(88vh - 12em);
+}
+
+/* =============================================================
+   THEME: RETRO (sports-hall LED board, ?theme=retro)
+   A dark housing at the top right with dot-matrix score windows.
+   ============================================================= */
+.theme-retro {
+    --retro-amber: #ffb12e;
+    --retro-red: #ff5a3c;
+    --retro-unlit: rgba(255, 177, 46, 0.1);
+    --retro-edge: #383a40;
+    color: #ece9e2;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: clamp(11px, 1.05vw, 20px);
+}
+.theme-retro .content_wrapper {
+    position: fixed;
+    top: 3.5vh;
+    right: 2.5vw;
+    width: min(92vw, 24em);
+}
+.theme-retro .scoreboard, .theme-retro .lineup {
+    background: linear-gradient(#26272b, #151619);
+    border: 1px solid var(--retro-edge);
+    border-radius: 7px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+.theme-retro .scoreboard {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 0.5em;
+    padding: 0.7em 0.85em 0.8em;
+}
+/* Once the scores are gone the match is over: FINAL replaces the chevrons. */
+.theme-retro .scoreboard:not(:has(.score))::after {
+    content: 'FINAL';
+    position: absolute;
+    top: 4.08em; /* level with the set windows */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Doto', 'Courier New', monospace;
+    font-weight: 900;
+    font-variation-settings: 'ROND' 100;
+    font-size: 1.1em;
+    color: var(--retro-red);
+    text-shadow: 0 0 0.3em rgba(255, 80, 50, 0.45);
+}
+.theme-retro :not(:has(.score)) > .serve { visibility: hidden; }
+/* Score spans two rows; the set window sits above a small SETS label. */
+.theme-retro .home, .theme-retro .away {
+    display: grid;
+    min-width: 0;
+    align-items: center;
+    column-gap: 0.45em;
+}
+.theme-retro .home {
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    grid-template-areas: 'team team team team' 'color color color color' 'score set . serve' 'score label . serve' 'ended ended ended ended';
+}
+.theme-retro .away {
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    grid-template-areas: 'team team team team' 'color color color color' 'serve . set score' 'serve . label score' 'ended ended ended ended';
+}
+.theme-retro .home:not(:has(.score)) {
+    grid-template-areas: 'team team team team' 'color color color color' 'set label . serve' 'set label . serve' 'ended ended ended ended';
+}
+.theme-retro .away:not(:has(.score)) {
+    grid-template-areas: 'team team team team' 'color color color color' 'serve . label set' 'serve . label set' 'ended ended ended ended';
+}
+.theme-retro .home::before, .theme-retro .away::before {
+    content: 'SETS';
+    grid-area: label;
+    align-self: start;
+    justify-self: center;
+    margin-top: 0.35em;
+    font-size: 0.5em;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #8d8f96;
+}
+.theme-retro .home:not(:has(.score))::before, .theme-retro .away:not(:has(.score))::before {
+    align-self: end;
+    margin-bottom: 0.5em;
+}
+.theme-retro .team {
+    grid-area: team;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+.theme-retro .away .team { text-align: right; }
+.theme-retro .color {
+    grid-area: color;
+    height: 0.2em;
+    margin: 0.4em 0 0.6em;
+    overflow: hidden;
+    line-height: 0;
+    border-radius: 2px;
+    background: #6b6f78;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+/* Recessed LED windows; a dim 88 behind each number reads as unlit dots. */
+.theme-retro .score, .theme-retro .set, .theme-retro .ended, .theme-retro .serve,
+.theme-retro .highlight, .theme-retro .number {
+    font-family: 'Doto', 'Courier New', monospace;
+    font-weight: 900;
+    font-variation-settings: 'ROND' 100;
+}
+.theme-retro .score, .theme-retro .set, .theme-retro .ended {
+    position: relative;
+    z-index: 0;
+    padding: 0.06em 0.14em;
+    line-height: 1.15;
+    text-align: right;
+    background: #060606;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.9), 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.theme-retro .score::before, .theme-retro .set::before, .theme-retro .ended::before {
+    content: '88';
+    position: absolute;
+    z-index: -1;
+    top: 0.06em;
+    right: 0.14em;
+    color: var(--retro-unlit);
+    text-shadow: none;
+}
+.theme-retro .score {
+    grid-area: score;
+    width: 2ch;
+    font-size: 2.5em;
+    color: var(--retro-amber);
+    text-shadow: 0 0 0.3em rgba(255, 160, 30, 0.45);
+}
+.theme-retro .set {
+    grid-area: set;
+    align-self: end;
+    width: 1ch;
+    font-size: 1.35em;
+    color: var(--retro-red);
+    text-shadow: 0 0 0.3em rgba(255, 80, 50, 0.45);
+}
+.theme-retro .set::before { content: '8'; }
+/* After the match, the sets won become the main numbers. */
+.theme-retro :not(:has(.score)) > .set {
+    align-self: center;
+    font-size: 2.5em;
+    color: var(--retro-amber);
+    text-shadow: 0 0 0.3em rgba(255, 160, 30, 0.45);
+}
+/* Possession chevrons meet in the middle of the board. */
+.theme-retro .serve {
+    grid-area: serve;
+    position: relative;
+    width: 1ch;
+    font-size: 1.6em;
+    line-height: 1;
+    color: transparent;
+}
+.theme-retro .serve::before {
+    content: '<';
+    position: absolute;
+    inset: 0;
+    color: var(--retro-unlit);
+}
+.theme-retro .away .serve::before { content: '>'; }
+.theme-retro .serving::before {
+    color: var(--retro-amber);
+    text-shadow: 0 0 0.3em rgba(255, 160, 30, 0.6);
+}
+.theme-retro .ended-sets {
+    grid-area: ended;
+    display: flex;
+    gap: 0.3em;
+    margin-top: 0.6em;
+}
+.theme-retro .away .ended-sets { justify-content: flex-end; }
+.theme-retro .ended {
+    width: 2ch;
+    font-size: 0.9em;
+    color: rgba(255, 177, 46, 0.72);
+}
+/* Actions run on a message strip under the board, aligned to the scoring side. */
+.theme-retro .highlight {
+    position: absolute;
+    top: calc(100% + 0.45em);
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.9em;
+    padding: 0.5em 1.1em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
+    background: #060606;
+    border: 1px solid var(--retro-edge);
+    border-radius: 7px;
+    box-shadow: inset 0 0 0 0.3em #1d1e22, inset 0 0 0 calc(0.3em + 1px) #000, 0 6px 18px rgba(0, 0, 0, 0.35);
+    animation: retro-wipe-right 360ms steps(9, end);
+}
+.theme-retro .away-highlight {
+    justify-content: flex-end;
+    animation-name: retro-wipe-left;
+}
+.theme-retro .highlight-desc, .theme-retro .highlight-player {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.theme-retro .highlight-desc {
+    flex: 0 1 auto;
+    max-width: 50%;
+    color: var(--retro-red);
+    text-shadow: 0 0 0.3em rgba(255, 80, 50, 0.45);
+}
+.theme-retro .highlight-player {
+    flex: 0 1 auto;
+    color: var(--retro-amber);
+    text-shadow: 0 0 0.3em rgba(255, 160, 30, 0.45);
+}
+.theme-retro .lineup {
+    position: absolute;
+    top: calc(100% + 3.6em);
+    right: 0;
+    width: min(88vw, 36em);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.8em;
+    padding: 0.9em 1.1em;
+    font-size: 0.85em;
+    max-height: calc(88vh - 12em);
+    overflow: hidden;
+}
+.theme-retro .home_team, .theme-retro .away_team { min-width: 0; }
+.theme-retro .team_name {
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding-bottom: 0.55em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--retro-edge);
+}
+.theme-retro .player { display: flex; align-items: baseline; gap: 0.7em; padding: 0.2em 0; }
+.theme-retro .number {
+    flex: 0 0 2ch;
+    text-align: right;
+    font-size: 1.15em;
+    color: var(--retro-amber);
+}
+.theme-retro .libero .number { color: var(--retro-red); }
+.theme-retro .name { min-width: 0; overflow-wrap: anywhere; }
+@keyframes retro-wipe-right {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+@keyframes retro-wipe-left {
+    from { clip-path: inset(0 0 0 100%); }
+    to { clip-path: inset(0 0 0 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-retro .highlight { animation: none; }
+}
+
+/* =============================================================
+   THEME: DAYLIGHT (light lower-third card, ?theme=daylight)
+   Paper rows at the bottom left; actions slide out beside the scoring team.
+   ============================================================= */
+.theme-daylight {
+    --day-paper: #fbfaf6;
+    --day-ink: #15171b;
+    --day-muted: #7a7d84;
+    --day-rule: #e4e1da;
+    --day-tint: #ecebe5;
+    --day-accent: #ff5a24;
+    --day-row: 2.1em;
+    --day-shadow: 0 10px 28px rgba(0, 0, 0, 0.26), 0 1px 3px rgba(0, 0, 0, 0.18);
+    color: var(--day-ink);
+    font-family: 'Barlow Condensed', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-size: clamp(12px, 1.2vw, 23px);
+    font-variant-numeric: tabular-nums;
+}
+.theme-daylight .content_wrapper {
+    position: fixed;
+    left: 2.5vw;
+    bottom: 4vh;
+    width: min(60vw, 23em);
+}
+.theme-daylight .scoreboard {
+    display: flex;
+    flex-direction: column;
+    background: var(--day-paper);
+    border-radius: 4px;
+    box-shadow: var(--day-shadow);
+    overflow: hidden;
+}
+.theme-daylight .home, .theme-daylight .away {
+    display: grid;
+    grid-template-columns: 0.4em minmax(0, 1fr) 1.3em auto 2em 2.6em;
+    grid-template-areas: 'color team serve ended set score';
+    align-items: center;
+    height: var(--day-row);
+}
+.theme-daylight .home:not(:has(.score)), .theme-daylight .away:not(:has(.score)) {
+    grid-template-columns: 0.4em minmax(0, 1fr) 1.3em auto 2.6em;
+    grid-template-areas: 'color team serve ended set';
+}
+.theme-daylight .away { border-top: 1px solid var(--day-rule); }
+.theme-daylight .color {
+    grid-area: color;
+    align-self: stretch;
+    font-size: 0;
+    background: #b9b6ae;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.14);
+}
+.theme-daylight .team {
+    grid-area: team;
+    min-width: 0;
+    padding: 0 0.4em 0 0.65em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 1.12em;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+.theme-daylight .serve {
+    grid-area: serve;
+    justify-self: center;
+    width: 0.5em;
+    height: 0.5em;
+    overflow: hidden;
+    border-radius: 50%;
+    color: transparent;
+}
+.theme-daylight .serving {
+    background: var(--day-accent);
+    box-shadow: 0 0 0 0.2em rgba(255, 90, 36, 0.2);
+}
+.theme-daylight .ended-sets {
+    grid-area: ended;
+    display: flex;
+    padding-right: 0.3em;
+}
+.theme-daylight .ended {
+    width: 1.5em;
+    text-align: center;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: var(--day-muted);
+}
+.theme-daylight .set, .theme-daylight .score {
+    align-self: stretch;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+}
+.theme-daylight .set {
+    grid-area: set;
+    font-size: 1.15em;
+    background: var(--day-tint);
+}
+.theme-daylight .score {
+    grid-area: score;
+    font-size: 1.45em;
+    color: #fff;
+    background: var(--day-ink);
+}
+/* After the match, the sets won take the score's place under a FINAL tab. */
+.theme-daylight :not(:has(.score)) > .set {
+    font-size: 1.45em;
+    color: #fff;
+    background: var(--day-ink);
+}
+.theme-daylight .scoreboard_wrapper:has(.scoreboard):not(:has(.score))::before {
+    content: 'Final';
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    padding: 0.15em 0.7em 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #fff;
+    background: var(--day-accent);
+    border-radius: 3px 3px 0 0;
+}
+.theme-daylight .highlight {
+    position: absolute;
+    top: calc(50% - var(--day-row) / 2);
+    left: calc(100% + 0.35em);
+    display: flex;
+    align-items: center;
+    gap: 0.65em;
+    height: var(--day-row);
+    max-width: min(34vw, 22em);
+    box-sizing: border-box;
+    padding: 0 0.9em;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #fff;
+    background: var(--day-ink);
+    border-radius: 4px;
+    box-shadow: var(--day-shadow);
+    animation: daylight-slide 240ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.theme-daylight .home-highlight { top: 0; }
+.theme-daylight .away-highlight { top: auto; bottom: 0; }
+.theme-daylight .highlight-desc {
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: 11em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--day-accent);
+}
+.theme-daylight .highlight-player {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.05em;
+    font-weight: 500;
+}
+.theme-daylight .lineup {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 0.6em);
+    width: min(88vw, 32em);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 1.4em;
+    padding: 0.85em 1em 0.9em;
+    font-size: 0.9em;
+    background: var(--day-paper);
+    border-radius: 4px;
+    box-shadow: var(--day-shadow);
+    max-height: calc(88vh - 8em);
+    overflow: hidden;
+}
+.theme-daylight .home_team, .theme-daylight .away_team { min-width: 0; }
+.theme-daylight .team_name {
+    text-transform: uppercase;
+    font-size: 1.05em;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    padding-bottom: 0.35em;
+    margin-bottom: 0.3em;
+    border-bottom: 2px solid var(--day-ink);
+}
+.theme-daylight .player {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.2em 0;
+    border-bottom: 1px solid var(--day-rule);
+}
+.theme-daylight .player:last-child { border-bottom: 0; }
+.theme-daylight .number {
+    flex: 0 0 1.9em;
+    line-height: 1.45;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    background: var(--day-ink);
+    border-radius: 2px;
+}
+.theme-daylight .libero .number { background: var(--day-accent); }
+.theme-daylight .libero .name::after {
+    content: 'Libero';
+    margin-left: 0.5em;
+    text-transform: uppercase;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--day-accent);
+}
+.theme-daylight .name { min-width: 0; overflow-wrap: anywhere; font-size: 1.05em; font-weight: 500; }
+@keyframes daylight-slide {
+    from { clip-path: inset(0 100% 0 0); transform: translateX(-0.6em); }
+    to { clip-path: inset(0 0 0 0); transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .theme-daylight .highlight { animation: none; }
+}

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src file: 'unsafe-inline'; script-src file:; img-src file:">
+    <title>Scoreboard Overlay</title>
+    <link rel="stylesheet" href="scoreboard.css">
+    <style>#scoreboard[hidden] { display: none; }</style>
+    <script src="scoreboard.js" defer></script>
+</head>
+<body class="theme-modern">
+    <div class="content_wrapper">
+        <div class="scoreboard_wrapper">
+            <div id="scoreboard" class="scoreboard" hidden>
+                <div class="home">
+                    <div class="set"></div>
+                    <div class="color">&nbsp;</div>
+                    <div class="team"></div>
+                    <div class="serve">&nbsp;</div>
+                    <div class="score"></div>
+                </div>
+                <div class="away">
+                    <div class="set"></div>
+                    <div class="color">&nbsp;</div>
+                    <div class="team"></div>
+                    <div class="serve">&nbsp;</div>
+                    <div class="score"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
