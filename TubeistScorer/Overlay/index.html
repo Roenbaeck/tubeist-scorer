@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src file: 'unsafe-inline'; script-src file:; img-src file:">
     <title>Scoreboard Overlay</title>
     <link rel="stylesheet" href="scoreboard.css">
-    <style>#scoreboard[hidden] { display: none; }</style>
     <script src="scoreboard.js" defer></script>
 </head>
 <body class="theme-modern">
@@ -28,6 +27,99 @@
                     <div class="score"></div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div id="timed-scoreboard" class="compact-scoreboard" hidden>
+        <div class="scoreboard-teams">
+            <div id="timed-home" class="timed-team">
+                <span class="jersey-color"></span>
+                <span class="team-name"></span>
+                <span class="possession-marker"></span>
+                <span class="team-points"></span>
+            </div>
+            <div id="timed-away" class="timed-team">
+                <span class="jersey-color"></span>
+                <span class="team-name"></span>
+                <span class="possession-marker"></span>
+                <span class="team-points"></span>
+            </div>
+        </div>
+        <div class="timed-period">
+            <span id="timed-period-label"></span>
+            <span id="timed-clock"></span>
+            <span id="timed-situation" hidden></span>
+        </div>
+    </div>
+    <div id="baseball-scoreboard" class="compact-scoreboard shows-possession" hidden>
+        <div class="scoreboard-teams">
+            <div id="baseball-away" class="timed-team">
+                <span class="jersey-color"></span>
+                <span class="team-name"></span>
+                <span class="possession-marker"></span>
+                <span class="team-points"></span>
+            </div>
+            <div id="baseball-home" class="timed-team">
+                <span class="jersey-color"></span>
+                <span class="team-name"></span>
+                <span class="possession-marker"></span>
+                <span class="team-points"></span>
+            </div>
+        </div>
+        <div class="timed-period">
+            <span id="baseball-inning"></span>
+            <div class="baseball-bases">
+                <span data-base="2"></span>
+                <span data-base="3"></span>
+                <span data-base="1"></span>
+            </div>
+            <span id="baseball-count"></span>
+        </div>
+    </div>
+    <div id="cricket-scoreboard" class="compact-scoreboard shows-possession" hidden>
+        <div class="scoreboard-teams">
+            <div id="cricket-home" class="timed-team">
+                <span class="jersey-color"></span>
+                <span class="team-name"></span>
+                <span class="possession-marker"></span>
+                <span class="team-points"></span>
+            </div>
+            <div id="cricket-away" class="timed-team">
+                <span class="jersey-color"></span>
+                <span class="team-name"></span>
+                <span class="possession-marker"></span>
+                <span class="team-points"></span>
+            </div>
+        </div>
+        <div class="timed-period">
+            <span id="cricket-status"></span>
+            <span id="cricket-overs"></span>
+            <span id="cricket-target" hidden></span>
+        </div>
+    </div>
+    <div id="racket-scoreboard" class="compact-scoreboard racket-scoreboard" hidden>
+        <div class="racket-row racket-header">
+            <span></span>
+            <span id="racket-status"></span>
+            <span></span>
+            <span class="racket-sets">Sets</span>
+            <span class="racket-games">Games</span>
+            <span>Points</span>
+        </div>
+        <div id="racket-home" class="racket-row" data-side="home">
+            <span class="jersey-color"></span>
+            <span class="racket-name"></span>
+            <span class="racket-serve"></span>
+            <span class="racket-sets" data-label="Sets"></span>
+            <span class="racket-games" data-label="Games"></span>
+            <span class="racket-points" data-label="Points"></span>
+        </div>
+        <div id="racket-away" class="racket-row" data-side="away">
+            <span class="jersey-color"></span>
+            <span class="racket-name"></span>
+            <span class="racket-serve"></span>
+            <span class="racket-sets" data-label="Sets"></span>
+            <span class="racket-games" data-label="Games"></span>
+            <span class="racket-points" data-label="Points"></span>
         </div>
     </div>
 </body>

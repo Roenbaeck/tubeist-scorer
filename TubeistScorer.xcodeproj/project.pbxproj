@@ -12,6 +12,13 @@
 		A10000000000000000000003 /* ScoreboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000013 /* ScoreboardView.swift */; };
 		A10000000000000000000004 /* OverlayPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000014 /* OverlayPreview.swift */; };
 		A10000000000000000000005 /* Overlay in Resources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000015 /* Overlay */; };
+		A10000000000000000000006 /* NearbyOverlaySender.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000017 /* NearbyOverlaySender.swift */; };
+		A10000000000000000000007 /* NearbyOverlayWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000018 /* NearbyOverlayWire.swift */; };
+		A10000000000000000000008 /* RallyMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000019 /* RallyMatch.swift */; };
+		A10000000000000000000009 /* BaseballGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001A /* BaseballGame.swift */; };
+		A1000000000000000000000A /* CricketMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001B /* CricketMatch.swift */; };
+		A1000000000000000000000B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001C /* Assets.xcassets */; };
+		A1000000000000000000000C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1000000000000000000001D /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +28,13 @@
 		A10000000000000000000014 /* OverlayPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPreview.swift; sourceTree = "<group>"; };
 		A10000000000000000000015 /* Overlay */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Overlay; sourceTree = "<group>"; };
 		A10000000000000000000016 /* TubeistScorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TubeistScorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000017 /* NearbyOverlaySender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyOverlaySender.swift; sourceTree = "<group>"; };
+		A10000000000000000000018 /* NearbyOverlayWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyOverlayWire.swift; sourceTree = "<group>"; };
+		A10000000000000000000019 /* RallyMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RallyMatch.swift; sourceTree = "<group>"; };
+		A1000000000000000000001A /* BaseballGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballGame.swift; sourceTree = "<group>"; };
+		A1000000000000000000001B /* CricketMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CricketMatch.swift; sourceTree = "<group>"; };
+		A1000000000000000000001C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A1000000000000000000001D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,9 +60,16 @@
 			children = (
 				A10000000000000000000011 /* TubeistScorerApp.swift */,
 				A10000000000000000000012 /* Scoreboard.swift */,
+				A10000000000000000000019 /* RallyMatch.swift */,
+				A1000000000000000000001A /* BaseballGame.swift */,
+				A1000000000000000000001B /* CricketMatch.swift */,
 				A10000000000000000000013 /* ScoreboardView.swift */,
 				A10000000000000000000014 /* OverlayPreview.swift */,
+				A10000000000000000000017 /* NearbyOverlaySender.swift */,
+				A10000000000000000000018 /* NearbyOverlayWire.swift */,
 				A10000000000000000000015 /* Overlay */,
+				A1000000000000000000001C /* Assets.xcassets */,
+				A1000000000000000000001D /* PrivacyInfo.xcprivacy */,
 			);
 			path = TubeistScorer;
 			sourceTree = "<group>";
@@ -112,7 +133,12 @@
 			files = (
 				A10000000000000000000001 /* TubeistScorerApp.swift in Sources */,
 				A10000000000000000000002 /* Scoreboard.swift in Sources */,
+				A10000000000000000000008 /* RallyMatch.swift in Sources */,
+				A10000000000000000000009 /* BaseballGame.swift in Sources */,
+				A1000000000000000000000A /* CricketMatch.swift in Sources */,
 				A10000000000000000000003 /* ScoreboardView.swift in Sources */,
+				A10000000000000000000006 /* NearbyOverlaySender.swift in Sources */,
+				A10000000000000000000007 /* NearbyOverlayWire.swift in Sources */,
 				A10000000000000000000004 /* OverlayPreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +149,11 @@
 		A10000000000000000000028 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
-			files = (A10000000000000000000005 /* Overlay in Resources */);
+			files = (
+				A10000000000000000000005 /* Overlay in Resources */,
+				A1000000000000000000000B /* Assets.xcassets in Resources */,
+				A1000000000000000000000C /* PrivacyInfo.xcprivacy in Resources */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
@@ -159,9 +189,11 @@
 		A10000000000000000000043 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Tubeist Scorer sends overlays and live updates to nearby Tubeist devices.";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tubeist Scorer";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -169,7 +201,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.subside.TubeistScorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -180,9 +212,11 @@
 		A10000000000000000000044 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Tubeist Scorer sends overlays and live updates to nearby Tubeist devices.";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tubeist Scorer";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -190,7 +224,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.subside.TubeistScorer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

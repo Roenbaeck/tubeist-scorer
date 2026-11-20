@@ -32,7 +32,7 @@ struct OverlayPreview: UIViewRepresentable {
     }
 
     final class Canvas: UIView {
-        static let overlaySize = CGSize(width: 1280, height: 720)
+        static let overlaySize = CGSize(width: NearbyOverlayWire.canvasWidth, height: NearbyOverlayWire.canvasHeight)
         let webView: WKWebView
 
         init(webView: WKWebView) {
@@ -91,7 +91,7 @@ struct OverlayPreview: UIViewRepresentable {
 
         private func renderIfNeeded(in webView: WKWebView) {
             guard isReady, let latestScoreboard, latestScoreboard != submittedScoreboard,
-                  let data = try? JSONEncoder().encode(latestScoreboard) else { return }
+                  let data = try? latestScoreboard.overlayUpdateData() else { return }
             submittedScoreboard = latestScoreboard
 
             webView.callAsyncJavaScript(

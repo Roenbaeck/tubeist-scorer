@@ -1,5 +1,31 @@
+html {
+    overflow: hidden;
+}
+
 body {
     margin: 0;
+}
+
+#scoreboard[hidden], .compact-scoreboard[hidden] {
+    display: none;
+}
+
+#scoreboard {
+    scale: var(--overlay-scale, none);
+    transform-origin: top left;
+}
+
+.theme-modern #scoreboard, .theme-arena #scoreboard {
+    transform-origin: bottom center;
+}
+.theme-courtside #scoreboard {
+    transform-origin: top left;
+}
+.theme-retro #scoreboard {
+    transform-origin: top right;
+}
+.theme-daylight #scoreboard {
+    transform-origin: bottom left;
 }
 
 /* =============================================================
@@ -1104,4 +1130,490 @@ body {
 }
 @media (prefers-reduced-motion: reduce) {
     .theme-daylight .highlight { animation: none; }
+}
+
+/* Shared layouts for timed matches, racket sports, baseball and cricket. */
+.compact-scoreboard {
+    --panel: #192437f2;
+    --metadata: #111b2b;
+    --text: #f5f8ff;
+    --marker: #a9caff;
+    --accent-text: var(--marker);
+    --divider: #a9caff30;
+    --shadow: 0 6px 20px #0005;
+    --corner-radius: 6px;
+    --stack-width: 360px;
+    --details-width: 108px;
+    --team-color-width: 6px;
+    --score-fill: transparent;
+    --score-text: var(--text);
+    --score-radius: 0;
+    position: fixed;
+    inset: auto auto 4vh 50%;
+    translate: -50% 0;
+    scale: var(--overlay-scale, none);
+    transform-origin: bottom center;
+    width: min(var(--stack-width), 95vw);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) var(--details-width);
+    overflow: hidden;
+    border: 1px solid var(--divider);
+    border-radius: var(--corner-radius);
+    background: var(--panel);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    font: 700 19px/1.2 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-variant-numeric: tabular-nums;
+}
+
+.timed-team {
+    display: grid;
+    grid-template-columns: var(--team-color-width) minmax(0, 1fr) minmax(64px, auto);
+    grid-template-areas: 'color name points';
+    align-items: center;
+    min-height: 42px;
+}
+
+.shows-possession .timed-team {
+    grid-template-columns: var(--team-color-width) minmax(0, 1fr) 16px minmax(64px, auto);
+    grid-template-areas: 'color name possession points';
+}
+
+.possession-marker {
+    grid-area: possession;
+    display: none;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--marker);
+    justify-self: center;
+    visibility: hidden;
+}
+
+.shows-possession .possession-marker {
+    display: block;
+}
+
+.shows-possession .possession-marker.has-ball {
+    visibility: visible;
+}
+
+.timed-team + .timed-team, .racket-row + .racket-row {
+    border-top: 1px solid var(--divider);
+}
+
+.compact-scoreboard .jersey-color {
+    align-self: stretch;
+}
+
+.timed-team .jersey-color {
+    grid-area: color;
+}
+
+.timed-team .team-name {
+    grid-area: name;
+    padding-inline: 10px 4px;
+}
+
+.team-name, .racket-name, #racket-status {
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.timed-team .team-points {
+    grid-area: points;
+    padding-inline: 6px;
+}
+
+.team-points, .racket-row[data-side] .racket-points {
+    display: grid;
+    place-content: center;
+    align-self: stretch;
+    border-radius: var(--score-radius);
+    background: var(--score-fill);
+    color: var(--score-text);
+    font-size: 24px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.timed-period {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 4px;
+    padding: 7px;
+    border-inline-start: 1px solid var(--divider);
+    background: var(--metadata);
+}
+
+#timed-period-label, #baseball-inning, #cricket-status {
+    color: var(--accent-text);
+    font-size: 16px;
+}
+
+#timed-clock {
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+#timed-situation, #baseball-count, #cricket-target {
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.timed-period:has(#timed-clock[hidden]) #timed-period-label {
+    font-size: 24px;
+}
+
+.baseball-bases {
+    position: relative;
+    width: 36px;
+    height: 24px;
+}
+
+.baseball-bases span {
+    position: absolute;
+    bottom: 2px;
+    width: 9px;
+    height: 9px;
+    box-sizing: border-box;
+    border: 1px solid var(--marker);
+    transform: rotate(45deg);
+}
+
+.baseball-bases [data-base="1"] { right: 3px; }
+.baseball-bases [data-base="2"] { left: 14px; top: 3px; }
+.baseball-bases [data-base="3"] { left: 3px; }
+
+.baseball-bases .occupied {
+    background: var(--marker);
+}
+
+#cricket-scoreboard {
+    --stack-width: 400px;
+    --details-width: 132px;
+}
+
+#cricket-scoreboard .team-points {
+    font-size: 20px;
+}
+
+:is(.theme-courtside, .theme-daylight, .theme-legacy) #cricket-scoreboard {
+    --stack-width: 424px;
+}
+
+:is(.theme-courtside, .theme-daylight, .theme-legacy) #cricket-scoreboard .scoreboard-teams {
+    display: grid;
+    grid-template-columns: var(--team-color-width) minmax(0, 1fr) 16px minmax(88px, max-content);
+}
+
+:is(.theme-courtside, .theme-daylight, .theme-legacy) #cricket-scoreboard .timed-team {
+    grid-area: auto / 1 / auto / -1;
+    grid-template-columns: subgrid;
+}
+
+.racket-scoreboard {
+    --stack-width: 440px;
+    --racket-metrics: 3;
+    --racket-metric-width: 62px;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.racket-scoreboard:is(.games-only, .sets-only) {
+    --racket-metrics: 2;
+}
+
+.racket-row {
+    display: grid;
+    grid-template-columns: var(--team-color-width) minmax(0, 1fr) 18px repeat(var(--racket-metrics), var(--racket-metric-width));
+    align-items: center;
+    min-height: 42px;
+    text-align: center;
+}
+
+.racket-scoreboard.games-only .racket-sets,
+.racket-scoreboard.sets-only .racket-games {
+    display: none;
+}
+
+.racket-header {
+    min-height: 24px;
+    background: var(--metadata);
+    color: var(--accent-text);
+    font-size: 13px;
+}
+
+.racket-name, #racket-status {
+    padding-inline-start: 10px;
+    text-align: start;
+}
+
+.racket-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+.racket-serve {
+    color: var(--accent-text);
+    font-size: 14px;
+}
+
+.racket-serve.is-serving:empty::before {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--marker);
+    content: '';
+}
+
+/* Modern and Arena put both sides on a lower-third bar. */
+.horizontal-scoreboard .compact-scoreboard {
+    width: min(608px, 95vw);
+}
+
+.horizontal-scoreboard .compact-scoreboard:not(.racket-scoreboard) {
+    grid-template-columns: minmax(0, 1fr) var(--details-width) minmax(0, 1fr);
+    grid-template-areas: 'first details second';
+}
+
+:is(.horizontal-scoreboard, .theme-retro) .scoreboard-teams {
+    display: contents;
+}
+
+.scoreboard-teams > .timed-team:first-child { grid-area: first; }
+.scoreboard-teams > .timed-team:last-child { grid-area: second; }
+
+.horizontal-scoreboard .timed-period {
+    grid-area: details;
+    border-inline-end: 1px solid var(--divider);
+}
+
+.horizontal-scoreboard .timed-team:last-child {
+    grid-template-columns: minmax(64px, auto) minmax(0, 1fr) var(--team-color-width);
+    grid-template-areas: 'points name color';
+}
+
+.horizontal-scoreboard .shows-possession .timed-team:last-child {
+    grid-template-columns: minmax(64px, auto) 16px minmax(0, 1fr) var(--team-color-width);
+    grid-template-areas: 'points possession name color';
+}
+
+.horizontal-scoreboard .timed-team:last-child .team-name {
+    padding-inline: 4px 10px;
+    text-align: end;
+}
+
+.horizontal-scoreboard .racket-scoreboard {
+    --racket-metric-width: 45px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.horizontal-scoreboard :is(.timed-team, .racket-row) {
+    border-top: 0;
+}
+
+.horizontal-scoreboard .racket-header {
+    display: contents;
+}
+
+.horizontal-scoreboard .racket-header > :not(#racket-status),
+.horizontal-scoreboard #racket-status:empty {
+    display: none;
+}
+
+.horizontal-scoreboard #racket-status {
+    grid-column: 1 / -1;
+    padding: 4px 10px;
+    background: var(--metadata);
+    text-align: center;
+}
+
+.horizontal-scoreboard .racket-row[data-side="away"] {
+    border-inline-start: 1px solid var(--divider);
+}
+
+.horizontal-scoreboard .racket-name {
+    font-size: 17px;
+}
+
+.horizontal-scoreboard .racket-row[data-side] [data-label] {
+    padding-block: 4px;
+}
+
+.horizontal-scoreboard .racket-row[data-side] [data-label]::after {
+    display: block;
+    margin-top: 1px;
+    font: 700 10px/1.2 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    text-transform: uppercase;
+    content: attr(data-label);
+}
+
+/* The sport-specific layouts use the same materials and colors as volleyball. */
+.theme-modern .compact-scoreboard {
+    --panel: var(--bg-scoreboard-oklch);
+    --metadata: oklch(25% 0.04 250 / 82%);
+    --text: var(--color-text);
+    --marker: var(--accent);
+    --shadow: 0 8px 24px #0004;
+    --corner-radius: 32px;
+    --team-color-width: 20px;
+    --score-fill: oklch(37% 0.06 250 / 75%);
+    --score-radius: 10px;
+    column-gap: 6px;
+    padding: 8px 14px;
+    inset-block-end: 2vh;
+}
+
+.theme-modern .compact-scoreboard .jersey-color {
+    align-self: center;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #fff9;
+}
+
+.theme-modern .timed-period, .theme-modern #racket-status {
+    border: 0;
+    border-radius: 10px;
+}
+
+.theme-modern #racket-status:not(:empty) {
+    margin: 0 22px 4px;
+}
+
+.theme-modern .racket-row[data-side="away"] {
+    border-inline-start: 0;
+}
+
+.theme-arena .compact-scoreboard {
+    --panel: var(--arena-panel);
+    --metadata: var(--arena-ink);
+    --marker: var(--arena-accent);
+    --divider: #ffffff33;
+    --shadow: 0 5px 16px #0004;
+    --score-fill: #f2f6f9;
+    --score-text: var(--arena-ink);
+}
+
+.theme-courtside .compact-scoreboard {
+    inset: 3.5vh auto auto 2.5vw;
+    translate: none;
+    transform-origin: top left;
+}
+
+.theme-retro .compact-scoreboard {
+    --panel: linear-gradient(#26272b, #151619);
+    --metadata: #151619;
+    --text: #ece9e2;
+    --marker: var(--retro-amber);
+    --divider: var(--retro-edge);
+    --shadow: inset 0 1px 0 #ffffff12, 0 6px 18px #0006;
+    --corner-radius: 7px;
+    --score-fill: radial-gradient(#ffb12e20 0.7px, transparent 1px) 0 0 / 4px 4px #060606;
+    --score-text: var(--retro-amber);
+    --score-radius: 3px;
+    inset: 3.5vh 2.5vw auto auto;
+    translate: none;
+    transform-origin: top right;
+    padding: 8px;
+}
+
+.theme-retro .compact-scoreboard:not(.racket-scoreboard) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: 'first second' 'details details';
+    gap: 6px;
+}
+
+.theme-retro .timed-team {
+    grid-template-columns: minmax(0, 1fr) 18px;
+    grid-template-areas: 'name name' 'color color' 'points points';
+    gap: 4px;
+    border: 0;
+}
+
+.theme-retro .shows-possession .timed-team {
+    grid-template-areas: 'name name' 'color color' 'points possession';
+}
+
+.theme-retro .timed-team .jersey-color {
+    height: 3px;
+}
+
+.theme-retro .timed-team .team-name {
+    padding: 0;
+    text-align: center;
+}
+
+.theme-retro .compact-scoreboard :is(.team-name, .racket-name) {
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.theme-retro .compact-scoreboard :is(.team-points, .racket-points, #timed-clock) {
+    font-family: 'Doto', 'Courier New', monospace;
+    font-weight: 900;
+    color: var(--retro-amber);
+    text-shadow: 0 0 0.3em #ffa01e73;
+}
+
+.theme-retro .timed-period {
+    grid-area: details;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--divider);
+    border-radius: 3px;
+}
+
+.theme-retro .racket-row[data-side] :is(.racket-games, .racket-sets) {
+    font-family: 'Doto', 'Courier New', monospace;
+    color: var(--retro-red);
+}
+
+.theme-daylight .compact-scoreboard {
+    --panel: var(--day-paper);
+    --metadata: var(--day-tint);
+    --text: var(--day-ink);
+    --marker: var(--day-accent);
+    --accent-text: #a3320e;
+    --divider: var(--day-rule);
+    --shadow: var(--day-shadow);
+    --corner-radius: 4px;
+    --score-fill: var(--day-ink);
+    --score-text: #fff;
+    inset: auto auto 4vh 2.5vw;
+    translate: none;
+    transform-origin: bottom left;
+}
+
+.theme-daylight .compact-scoreboard :is(.team-name, .racket-name) {
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.theme-legacy .compact-scoreboard {
+    --panel: oklch(25% 0.025 20 / 80%);
+    --metadata: #251c20e0;
+    --marker: #ffe1ce;
+    --divider: #ffe1ce26;
+    --shadow: none;
+    --corner-radius: 10px;
+    inset: 2.5vh auto auto 2.5vw;
+    translate: none;
+    transform-origin: top left;
+    padding: 5px;
+}
+
+.theme-legacy .team-points {
+    place-content: center end;
+    padding-inline: 6px 12px;
 }
