@@ -4,6 +4,12 @@ Tubeist Scorer is a standalone SwiftUI app for iPhone and iPad. It lets a scorek
 
 Open **TubeistScorer.xcodeproj** and run the **TubeistScorer** scheme on an iOS 18 or later simulator. To run on a physical device, select your development team in the target's Signing & Capabilities settings.
 
+## Screenshots
+
+<img src="AppStore/Website/assets/basketball-scoring.webp" width="300" alt="Tubeist Scorer on iPhone showing the basketball scoring controls, clock, and overlay preview">
+
+<img src="AppStore/Website/assets/theme-arena.webp" width="660" alt="Close-up of the Arena scoreboard showing Stockholm 68, Göteborg 61, with 2:14 left in the fourth quarter">
+
 ## Sports
 
 Choose the **Sport** above the preview. Scorer saves a match for each sport
