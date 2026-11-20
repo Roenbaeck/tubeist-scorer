@@ -69,6 +69,9 @@ struct ScoreboardView: View {
                             ForEach(teamOrder, id: \.self) { teamCard($0) }
                         }
                     }
+                    Link("Privacy Policy", destination: URL(string: "https://www.uptochange.com/tubeist-scorer/privacy-policy.html")!)
+                        .font(.footnote)
+                        .padding(.vertical, 8)
                 }
                 .frame(maxWidth: 680)
                 .padding()
